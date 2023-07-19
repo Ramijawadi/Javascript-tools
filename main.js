@@ -383,25 +383,24 @@ switch (job) {
 
 /*Array*/
 
-let myFriends = ["rami" , "salah" , "amine"]
-console.log(`hello ${myFriends[0]}`) //hello rami
-console.log(`${myFriends[1][0]}`) // s
+let myFriends = ["rami", "salah", "amine"];
+console.log(`hello ${myFriends[0]}`); //hello rami
+console.log(`${myFriends[1][0]}`); // s
 
 /*Array Methods
 Length*/
 
 console.log(myFriends.length); //3
-myFriends[2]= "jamil";
-console.log(myFriends)
+myFriends[2] = "jamil";
+console.log(myFriends);
 
-//ajouter dynamic a la fin de table 
-myFriends[myFriends.length]= "tarek"
-console.log(myFriends)
+//ajouter dynamic a la fin de table
+myFriends[myFriends.length] = "tarek";
+console.log(myFriends);
 
 //update last element dans le table
-myFriends[myFriends.length- 1 ]="samir"
-console.log(myFriends)
-
+myFriends[myFriends.length - 1] = "samir";
+console.log(myFriends);
 
 /* Array methods
 unshift("" , "")  add element in the first
@@ -409,28 +408,285 @@ push("", "") add element in the End
 shift() remove / supprimer 1er element de table
 pop() remove / supprimer last element de table
 */
- 
-myFriends.unshift(" med slah" , " kamel ");
-console.log(myFriends)
-myFriends.push("ghassen" , "alex")
-console.log(myFriends)
-let first = myFriends.shift();
-console.log(myFriends)
 
-console.log(`first name is ${first}`) // first name is med salah
+myFriends.unshift(" med slah", " kamel ");
+console.log(myFriends);
+myFriends.push("ghassen", "alex");
+console.log(myFriends);
+let first = myFriends.shift();
+console.log(myFriends);
+
+console.log(`first name is ${first}`); // first name is med salah
 let last = myFriends.pop();
-console.log(myFriends)
-console.log(`last name is ${last}`)//last name is alex
+console.log(myFriends);
+console.log(`last name is ${last}`); //last name is alex
 
 /*Array methods [search]*/
 console.log(myFriends);
 console.log(myFriends.indexOf("jamil")); //index de jamil dans table
-console.log(myFriends.lastIndexOf("samir"))//index de samir apres recherche a partir de end c
+console.log(myFriends.lastIndexOf("samir")); //index de samir apres recherche a partir de end c
 
 /* sort 
 reverse*/
 
 // sort organiser alphabetique
-//reverse organiser le maniere opposè 
+//reverse organiser le maniere opposè
+
+/*loop
+loop on Sequences*/
+
+let Myfriends = [1, 2, "rami", "alex", "amine", "salah"];
+
+console.log(Myfriends[0]);
+console.log(Myfriends[1]);
+console.log(Myfriends[2]);
+console.log(Myfriends[3]);
+console.log(Myfriends[4]);
+
+//autre methode
+
+for (let i = 0; i < 5; i++) {
+  console.log(Myfriends[i]);
+}
+
+//stocker seulement les name dans un array
+let onlyName = [];
+
+for (let i = 0; i < Myfriends.length; i++) {
+  if (typeof Myfriends[i] === "string") {
+    onlyName.push(Myfriends[i]);
+  }
+}
+console.log(onlyName);
+
+/*
+
+loop control
+Break // stopper le loop et sortir
+Continue // continuer l execusion sans sortir 
+Label // utuliser pour stocker une codition ou etc .. et on peux appeler dans break par exemple
+
+*/
+
+let products = ["keyboard", "Mouse", 10, 20, "pen", 30, 40, "monitor"];
+let product = ["keyboard", "Mouse", "pen", "monitor"];
+
+let colors = ["red", "green", "blue"];
+
+//console log vas afficher jusqua le pen puis fait le check
+for (let i = 0; i < products.length; i++) {
+  console.log(products[i]);
+  if (products[i] === "pen") {
+    break;
+  }
+}
+
+//console log vas parcourir et fait le check puis afficher sans pen
+for (let i = 0; i < products.length; i++) {
+  if (products[i] === "pen") {
+    break;
+  }
+  console.log(products[i]);
+}
+
+for (let i = 0; i < products.length; i++) {
+  if (typeof products[i] === "number") {
+    continue;
+  }
+  console.log(products[i]);
+}
+
+mainLoop: for (let i = 0; i < product.length; i++) {
+  console.log(product[i]);
+
+  nestedLoop: for (let j = 0; j < colors.length; j++) {
+    console.log(`-${colors[j]}`);
+    if (colors[j] === "green") {
+      break;
+      // break mainLoop; va stoper et sortir  dès la premiere iteration quand il trouve le "Green"
+    }
+  }
+}
+
+/*
+Product Practice
+
+*/
+
+let productss = ["keyboard", "Mouse", "pen", "monitor", "Iphone", "pad"];
+
+let colorss = ["black", "red", "yellow"];
+
+let count = 3;
+document.write(`<h1> show ${count} products</h1>`);
+
+for (let i = 0; i < count; i++) {
+  document.write(`<div>`);
+  document.write(`<h1> ${[i + 1]}  ${productss[i]}</h1>`);
+  for (let j = 0; j < colorss.length; j++) {
+    document.write(`<p>${colorss[j]}</p>`);
+  }
+
+  document.write(`</div>`);
+}
 
 
+/*
+Loop
+while // puisque condition est vrai executer le block
+*/ 
+
+let tab = ["keyboard", "Mouse", "pen", "rami"];
+
+
+let index = 0;
+
+while(index < tab.length){
+  console.log(tab[index]);
+  index++;
+  
+}
+
+/*
+Do / While // executer le block puis check me while
+*/
+let i = 0;
+do {
+console.log(i); //0
+i++ ;
+
+}while(false)
+console.log(i)//1
+
+
+/*loop challenge / exercice */
+
+let Admins = ["Ahmed" , "Oussema" ,"Rami" , "Sayed" , "Samir"];
+let Emplyees = ["Amjad","samah","Ameer","Omar","Amany","Semia","Rafik" , "Rayen"];
+let AdminCount = 3 ;
+
+document.write(`<div> we have ${AdminCount} Admins </div>`)
+document.write(`<hr>`);
+
+document.write(`<div>`);
+
+for(let i = 0 ; i<AdminCount ; i++){
+
+document.write(`<p> Tha Admin For Team ${[i+1]} Is ${Admins[i]}</p>`);
+document.write(`<h3>Team Members:</h3>`);
+for (let j = 0 ; j <Emplyees.length ; j++){
+if(Admins[i][0] == Emplyees[j][0]){
+
+  document.write(`<p> ${-[j+1]} ${Emplyees[j]}</p>`)
+
+}}
+
+document.write(`<hr>`);
+
+}
+document.write(`</div>`);
+
+/***************************/
+
+/*Function 
+dry : dont repeat yourself
+
+ */ 
+
+
+/* au lieu de repeter */
+console.log("hello Rami");
+console.log("hello salah");
+console.log("hello amine");
+console.log("hello samir");
+
+/* on fait just un appel a la function*/
+
+function sayHello (userName) {
+console.log(` Hello ${userName}`)
+
+}
+sayHello("Rami"); // Hello Rami
+sayHello("salah"); //Hello salah
+sayHello("amine");//Hello amine
+
+
+/* Function advanced Exemples*/ 
+
+function Person (userName , age ) {
+
+if (age < 20){
+
+  console.log("this app is not suitable for you")
+}
+else {
+console.log(` hello ${userName} your age is ${age}`)
+}
+
+
+}
+Person("Rami" , 32);
+Person("Rami" , 40);
+Person("Rami" , 25);
+Person("Rami" , 15);
+
+
+function generateYears (start , end , exclude) {
+for (let i =  start ; i<= end ; i++){
+ if (i === exclude){
+continue ;
+
+ }
+  console.log(i);
+}
+}
+generateYears(1992 , 2023 ,2020); // afficher tous sauf 2020
+
+/*
+
+Function 
+Rturn
+automatic Semicolone insertion
+Interrupting*/
+
+function calc (num1 , num2 ){
+
+  return num1 + num2;
+
+
+}
+let Rs = calc(10,5);
+console.log(Rs)
+
+/**************************/
+
+function Generate (start , end ) {
+
+  for (i = start ; i<= end ; i++) {
+    console.log(i)
+   if (i === 15){
+    return `interruption`; // return stope l execution
+   }
+
+  }
+}
+
+Generate(5 , 18)
+
+/*Function default value*/
+
+function Persons (username , age="unknwon") {
+
+// if (age === undefined){
+
+//   age ="unknown"
+// }
+
+// age = age || "unknown"
+
+return `Hello your name is ${username} and your age is ${age}`
+
+}
+
+
+console.log(Persons("Rami"));
