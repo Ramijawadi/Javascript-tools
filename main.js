@@ -322,10 +322,10 @@ console.log(`hello ${theName}`);
 theAge < 20
   ? console.log("20")
   : theAge > 20 && theAge < 60
-  ? console.log("20 to 60")
-  : theAge > 60
-  ? console.log("more than 60")
-  : console.log(unknown);
+    ? console.log("20 to 60")
+    : theAge > 60
+      ? console.log("more than 60")
+      : console.log(unknown);
 
 /*switch statement 
   switch(expression) {
@@ -534,17 +534,17 @@ for (let i = 0; i < count; i++) {
 /*
 Loop
 while // puisque condition est vrai executer le block
-*/ 
+*/
 
 let tab = ["keyboard", "Mouse", "pen", "rami"];
 
 
 let index = 0;
 
-while(index < tab.length){
+while (index < tab.length) {
   console.log(tab[index]);
   index++;
-  
+
 }
 
 /*
@@ -552,36 +552,37 @@ Do / While // executer le block puis check me while
 */
 let i = 0;
 do {
-console.log(i); //0
-i++ ;
+  console.log(i); //0
+  i++;
 
-}while(false)
+} while (false)
 console.log(i)//1
 
 
 /*loop challenge / exercice */
 
-let Admins = ["Ahmed" , "Oussema" ,"Rami" , "Sayed" , "Samir"];
-let Emplyees = ["Amjad","samah","Ameer","Omar","Amany","Semia","Rafik" , "Rayen"];
-let AdminCount = 3 ;
+let Admins = ["Ahmed", "Oussema", "Rami", "Sayed", "Samir"];
+let Emplyees = ["Amjad", "samah", "Ameer", "Omar", "Amany", "Semia", "Rafik", "Rayen"];
+let AdminCount = 3;
 
 document.write(`<div> we have ${AdminCount} Admins </div>`)
 document.write(`<hr>`);
 
 document.write(`<div>`);
 
-for(let i = 0 ; i<AdminCount ; i++){
+for (let i = 0; i < AdminCount; i++) {
 
-document.write(`<p> Tha Admin For Team ${[i+1]} Is ${Admins[i]}</p>`);
-document.write(`<h3>Team Members:</h3>`);
-for (let j = 0 ; j <Emplyees.length ; j++){
-if(Admins[i][0] == Emplyees[j][0]){
+  document.write(`<p> Tha Admin For Team ${[i + 1]} Is ${Admins[i]}</p>`);
+  document.write(`<h3>Team Members:</h3>`);
+  for (let j = 0; j < Emplyees.length; j++) {
+    if (Admins[i][0] == Emplyees[j][0]) {
 
-  document.write(`<p> ${-[j+1]} ${Emplyees[j]}</p>`)
+      document.write(`<p> ${-[j + 1]} ${Emplyees[j]}</p>`)
 
-}}
+    }
+  }
 
-document.write(`<hr>`);
+  document.write(`<hr>`);
 
 }
 document.write(`</div>`);
@@ -591,7 +592,7 @@ document.write(`</div>`);
 /*Function 
 dry : dont repeat yourself
 
- */ 
+ */
 
 
 /* au lieu de repeter */
@@ -602,8 +603,8 @@ console.log("hello samir");
 
 /* on fait just un appel a la function*/
 
-function sayHello (userName) {
-console.log(` Hello ${userName}`)
+function sayHello(userName) {
+  console.log(` Hello ${userName}`)
 
 }
 sayHello("Rami"); // Hello Rami
@@ -611,36 +612,36 @@ sayHello("salah"); //Hello salah
 sayHello("amine");//Hello amine
 
 
-/* Function advanced Exemples*/ 
+/* Function advanced Exemples*/
 
-function Person (userName , age ) {
+function Person(userName, age) {
 
-if (age < 20){
+  if (age < 20) {
 
-  console.log("this app is not suitable for you")
+    console.log("this app is not suitable for you")
+  }
+  else {
+    console.log(` hello ${userName} your age is ${age}`)
+  }
+
+
 }
-else {
-console.log(` hello ${userName} your age is ${age}`)
+Person("Rami", 32);
+Person("Rami", 40);
+Person("Rami", 25);
+Person("Rami", 15);
+
+
+function generateYears(start, end, exclude) {
+  for (let i = start; i <= end; i++) {
+    if (i === exclude) {
+      continue;
+
+    }
+    console.log(i);
+  }
 }
-
-
-}
-Person("Rami" , 32);
-Person("Rami" , 40);
-Person("Rami" , 25);
-Person("Rami" , 15);
-
-
-function generateYears (start , end , exclude) {
-for (let i =  start ; i<= end ; i++){
- if (i === exclude){
-continue ;
-
- }
-  console.log(i);
-}
-}
-generateYears(1992 , 2023 ,2020); // afficher tous sauf 2020
+generateYears(1992, 2023, 2020); // afficher tous sauf 2020
 
 /*
 
@@ -649,44 +650,199 @@ Rturn
 automatic Semicolone insertion
 Interrupting*/
 
-function calc (num1 , num2 ){
+function calc(num1, num2) {
 
   return num1 + num2;
 
 
 }
-let Rs = calc(10,5);
+let Rs = calc(10, 5);
 console.log(Rs)
 
 /**************************/
 
-function Generate (start , end ) {
+function Generate(start, end) {
 
-  for (i = start ; i<= end ; i++) {
+  for (i = start; i <= end; i++) {
     console.log(i)
-   if (i === 15){
-    return `interruption`; // return stope l execution
-   }
+    if (i === 15) {
+      return `interruption`; // return stope l execution
+    }
 
   }
 }
 
-Generate(5 , 18)
+Generate(5, 18)
 
 /*Function default value*/
 
-function Persons (username , age="unknwon") {
+function Persons(username, age = "unknwon") {
 
-// if (age === undefined){
+  // if (age === undefined){
 
-//   age ="unknown"
-// }
+  //   age ="unknown"
+  // }
 
-// age = age || "unknown"
+  // age = age || "unknown"
 
-return `Hello your name is ${username} and your age is ${age}`
+  return `Hello your name is ${username} and your age is ${age}`
+
+}
+console.log(Persons("Rami"));
+
+
+
+/*
+
+Function advanced
+parametres
+default
+Rest
+Loop
+Condition
+*/
+
+function showInfo(user = "unknown", age = "unknown", rate = 0, show = "yes", ...skills) {
+
+  document.write(`<div>`)
+
+  document.write(`<h1> the user is ${user}</h1>`)
+  document.write(`<p> the age is ${age}</p>`)
+  document.write(`<p>the hour rate is $${rate}</p>`)
+  if (show === "yes") {
+
+    if (skills.length > 0) {
+
+      document.write(`<p>skills : ${skills.join(" | ")}</p>`)
+
+    } else {
+
+      document.write(`<p>skills : No skills</p>`)
+    }
+  }
+  else {
+
+    document.write(`<p>skills are hidden</p>`)
+  }
+
+
+  document.write(`</div>`)
+
+
+}
+showInfo("rami", 30, 20, "html", "css")
+
+
+/* Anonymos function*/  //function sans nom
+
+
+document.getElementById("show").onclick = function () {
+
+  console.log("show")
 
 }
 
+/* regular function*/
 
-console.log(Persons("Rami"));
+
+let print = function (num) {
+  return num;
+}
+console.log(print(20));
+/* arrow function */
+
+let printt = (num) =>
+  num;
+
+console.log(printt(20));
+
+
+/*DOM  
+document object model*/
+
+
+
+let myIdElement = document.getElementById("my-div");
+let myTagElement = document.getElementsByTagName("p");
+let myClassElement = document.getElementsByClassName("my-span");
+let myQueryElement = document.querySelector(".my-span");
+let myQueryAllElement = document.querySelectorAll(".my-span");
+
+
+
+console.log(myIdElement);
+console.log(myTagElement);
+console.log(myClassElement);
+console.log(myQueryElement); // retourne premier span
+console.log(myQueryAllElement);
+
+
+console.log(document.title); //afficher le title
+console.log(document.body);//afficher le body
+console.log(document.forms[0])//1er forme
+console.log(document.links[0]); //https//google.com
+
+/*
+ 
+Create element DOM*/
+
+let myElement = document.createElement("div"); //cree element div
+let mayAttr = document.createAttribute("data-custom");
+let myText = document.createTextNode("Product one")
+let myComment = document.createComment("this is Div")
+
+myElement.className = "product";
+myElement.setAttributeNode(mayAttr);
+myElement.setAttribute("data-custom", "Testing"); //modifier attribute
+//Append comment
+
+myElement.appendChild(myComment);
+
+
+//Append Text to element : append = ajouter 
+myElement.appendChild(myText);
+
+
+//Append Element to Body
+
+document.body.appendChild(myElement);
+console.log(myElement)
+
+/*DOM event  */
+//onclick  +  onmouseenter + onmouseleave + onscroll..
+let myBtn = document.getElementById("btn");
+
+myBtn.onclick = function () {
+  console.log("clicked")
+}
+
+window.onscroll = function () {
+  console.log("skrolling ..")
+}
+
+
+/* Validation form
+preventDefault // blocker  l'event 
+*/
+
+
+let userInput = document.querySelector("[name='username']");
+let ageInput = document.querySelector("[name='age']");
+// console.log(userInput);
+// console.log(ageInput);
+
+document.forms[0].onsubmit = function (e) {
+  
+  let userValid = false;
+  let ageValid = false;
+
+  console.log(userInput.value);
+  console.log(userInput.value.length);
+  // if (userInput.value !== "" && userInput.value.length <= 10) {
+  //   console.log("valid")
+  // }
+  if (userValid === false || ageValid === false) {
+    e.preventDefault();
+  }
+
+};
