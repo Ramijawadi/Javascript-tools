@@ -823,13 +823,13 @@ window.onscroll = function () {
 
 /* Validation form
 preventDefault // blocker  l'event 
-*/
+*/ 
 
 
 let userInput = document.querySelector("[name='username']");
 let ageInput = document.querySelector("[name='age']");
-// console.log(userInput);
-// console.log(ageInput);
+console.log(userInput);
+console.log(ageInput);
 
 document.forms[0].onsubmit = function (e) {
   
@@ -838,11 +838,195 @@ document.forms[0].onsubmit = function (e) {
 
   console.log(userInput.value);
   console.log(userInput.value.length);
-  // if (userInput.value !== "" && userInput.value.length <= 10) {
-  //   console.log("valid")
-  // }
+  if (userInput.value !== "" && userInput.value.length <= 10) {
+    console.log("valid")
+    userValid = true;
+  }
+
+  if (ageInput.value !== ""){
+
+    console.log( "age is valid");
+    ageValid = true ;
+  }
+
+
   if (userValid === false || ageValid === false) {
     e.preventDefault();
   }
+ 
+
 
 };
+
+document.links[2].onclick = function(event) {
+
+  console.log(event);
+  event.preventDefault(); //bloquer l'event search on Google
+  
+  };
+
+  /* event simaulation 
+  Focus
+  click
+  onblur*/
+  let one = document.querySelector(".one");
+  let two = document.querySelector(".two");
+
+
+  window.onload = function () {
+    one.focus();  // focus sur input 1 chaque reload de page 
+  };
+
+  two.onblur = function() {
+
+    document.links[1].click(); //link vers google si je sort de input 2
+
+  }
+
+
+  /*
+  DOM 
+  Css
+  cssText
+  removeProperty(propertyName)
+  setProoerty(propertyName , value , property)
+  */
+
+  let element = document.getElementById("div");
+
+  element.style.color = "red";
+  element.style.fontSize = "5rem";
+
+  element.style.cssText ="color:green ; font-size:20px ; opacity: 0.9"
+  //si on utulise le cssText il va dominer tous le css qui existe 
+
+
+  element.style.removeProperty("color"); //effacer le color
+  element.style.setProperty("font-size" , "6rem" , "important");
+
+
+  /*
+  BOM : browser object model
+  alert message
+  confirm message
+  prompt message
+  
+  */
+
+  // alert("hello");
+
+
+//   let confirmed = confirm("are you sure to deelete this item");
+//   console.log(confirmed); // boolean : true if ok , false if cancel
+
+
+//   if (confirmed === true){
+// console.log("item deleted")
+
+//   }else {
+
+//     console.log("items not deleted")
+//   }
+
+
+// let promtMessage = prompt("what is your suitable day ! write the day from 3 characteres");
+// console.log(promtMessage);
+
+/* BOM
+setTimeout
+clearTimeout
+
+*/
+
+setTimeout (function (){
+
+console.log(`message`);
+}, 3000 )
+
+//another methode setTimeout  with params 
+
+setTimeout(sayHello,3000 , "Rami", 29)
+function sayHello (user , age) {
+
+console.log(`hello im ${user} and my age is ${age} `)
+
+}
+
+//clear timeout 
+
+let counter = setTimeout(sayHello ,3000 , "alex", 20)
+
+function sayMsg() {
+console.log(`im a message`);
+
+}
+
+let btn = document.getElementById("clear");
+btn.onclick = function() {
+
+  clearTimeout(counter);
+};
+
+
+//scrolling to top js native
+
+
+let bntt = document.getElementById("up");
+
+window.onscroll = function () {
+
+  if(window.scrollY >= 300){
+
+    bntt.style.display = "block";
+  }else 
+  bntt.style.display = "none";
+}
+
+bntt.onclick = function () {
+  window.scrollTo ({
+
+    left: 0 ,
+    top:0 ,
+    behavior : "smooth",
+  })
+}
+
+/* destructuring array*/
+
+
+let f = 1 ;
+let g = 2 ;
+let h = 3 ;
+
+let friends = ["rami", "salah", "amine"];
+
+[f, g , h] = friends;
+
+console.log(f);
+console.log(g);
+console.log(h)
+
+//afficher salah seulement
+ 
+let [ ,y, ]= friends;
+console.log(y)
+
+/* destructuring array => swapping */
+let book = "Video";
+let video = "Book";
+
+/*save book variable in stash*/
+ let stash = book ; //Video
+
+ //change Book value
+
+ book= video ; //Book
+ //change Video value
+
+ video = stash 
+
+ console.log(book);
+ console.log(video);
+
+ //methode destruturing
+ [book, video] = [video, book]
